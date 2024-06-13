@@ -63,3 +63,4 @@
 	<script src="../delivery/javascript.js"></script>
 </body>
 </html>
+<!-- update delivery Details -->
