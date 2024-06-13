@@ -38,4 +38,4 @@
 	  echo $output;  
  	}  
 ?>
- 
+<!-- feature View Supplier -->
