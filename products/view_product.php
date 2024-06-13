@@ -39,4 +39,4 @@
 	  echo $output;  
  	}  
 ?>
- 
+<!-- feature View product -->
