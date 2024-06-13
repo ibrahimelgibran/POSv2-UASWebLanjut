@@ -50,6 +50,7 @@
     <?php include('templates/head.php'); ?>
     <script src="bootstrap4/jquery/sweetalert.min.js"></script>
 </head>
+<!-- Feature Login  -->
 <body>
     <div class="container">
         <div class="fixed-top-center">
