@@ -13,7 +13,7 @@
 	<div class="contain h-100">
 		<?php include('../logs/base.php');?>
 		<div>
-			<h1 class="ml-4 pt-2"><i class="fas fa-globe"></i> Recorded Lsgs</h1>
+			<h1 class="ml-4 pt-2"><i class="fas fa-globe"></i> Recorded Logs</h1>
 			<hr class="mt-0 mb-0">
 			<div class="table-responsive mt-4 pl-5 pr-5">
 				<table class="table table-striped table-bordered" id="logs_table" style="margin-top: -22px;">
