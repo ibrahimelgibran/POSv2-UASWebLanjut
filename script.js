@@ -244,27 +244,33 @@ $(document).on("click", ".Enter", function () {
   }
 });
 
-// feature print struck format csv
+// feature print struck
 function printReceipt(product, quantity, price, TotalValue, change, customer) {
-  var receiptContent = "Product,Quantity,Price\n";
+  var receiptContent = "<html><head><title>Receipt</title></head><body>";
+  receiptContent += "<h1>Receipt By IEGCODE</h1>";
+  receiptContent +=
+    "<table border='1'><tr><th>Product</th><th>Quantity</th><th>Price</th></tr>";
   for (var i = 0; i < product.length; i++) {
-    receiptContent += product[i] + "," + quantity[i] + "," + price[i] + "\n";
+    receiptContent +=
+      "<tr><td>" +
+      product[i] +
+      "</td><td>" +
+      quantity[i] +
+      "</td><td>" +
+      price[i] +
+      "</td></tr>";
   }
-  receiptContent += "\nTotal: " + TotalValue + "\n";
-  receiptContent += "Change: " + change + "\n";
-  receiptContent += "Customer: " + customer + "\n";
+  receiptContent += "</table>";
+  receiptContent += "<p>Total: " + TotalValue + "</p>";
+  receiptContent += "<p>Change: " + change + "</p>";
+  receiptContent += "<p>Customer: " + customer + "</p>";
+  receiptContent += "</body></html>";
 
-  var blob = new Blob([receiptContent], { type: "text/csv;charset=utf-8;" });
-  var link = document.createElement("a");
-  if (link.download !== undefined) {
-    var url = URL.createObjectURL(blob);
-    link.setAttribute("href", url);
-    link.setAttribute("download", "receipt.csv");
-    link.style.visibility = "hidden";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  }
+  var printWindow = window.open("", "_blank");
+  printWindow.document.open();
+  printWindow.document.write(receiptContent);
+  printWindow.document.close();
+  printWindow.print();
 }
 
 $(document).on("click", ".cancel", function (e) {
