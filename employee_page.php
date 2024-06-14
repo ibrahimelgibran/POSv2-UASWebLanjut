@@ -88,7 +88,7 @@
 				<div class="">
 					<small>
 					<ul class="text-white justify-content-center">
-						<li class="mb-0">Discount (%): <input style="width: 100px" type="number" name="discount" value="" min="1" placeholder="Enter Discount" id="discount"></li>
+						<li class="mb-0">Discount (%): <input style="width: 100px" type="number" name="discount" value="0" min="0" placeholder="Enter Discount" id="discount"></li>
 						<li class="d-flex mb-0">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<p class="dis m-0"></p></li>
 						<li class="d-flex">Total:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<p id="totalValue1">IDR 0.00</p></li>
 					</ul>
@@ -121,11 +121,11 @@
 				<button id="buttons" type="button" class="cancel btn btn-secondary border"><i class="fas fa-ban"></i> Cancel</button>
 			</div>
 		</div>
-		<div id="footer" class="w-100" align="center" style="">
+		<div id="footer" class="w-100"  style="text-align: center">
 			<button id="buttons" onclick="window.location.href='employee/profile.php'" class="btn btn-secondary border mr-2 ml-2"><i class="fas fa-user-circle"></i> My Profile</button>
 			<button id="buttons" onclick="window.location.href='employee/inventory.php'" class="btn btn-secondary border mr-2"><i class="fas fa-box-open"></i> Inventory</button>
 			<button id="buttons" onclick="window.location.href='employee/cashflow.php'" class="btn btn-secondary border mr-2"><i class="fas fa-money-bill-wave"></i> Cash-Flow</button>
-			<button id="buttons" name="logout" type="button" onclick="out();" class="logout btn btn-danger border mr-2"/> <i class="fas fa-sign-out-alt"></i> Logout</div>
+			<button id="buttons" name="logout" type="button" onclick="out();" class="logout btn btn-danger border mr-2"> <i class="fas fa-sign-out-alt"></i> Logout</div>
 		</div>
 	</div>
 	<?php include('add.php');?>
