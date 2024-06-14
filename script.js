@@ -179,10 +179,6 @@ $(document).on("click", ".Enter", function () {
           swal("Error", "Entered None!", "error");
         } else {
           var change = 0;
-          // var TotalPriceArr = $('#tableData tr .totalPrice').get()
-          // $(TotalPriceArr).each(function(){
-          //   TotalValue += parseFloat($(this).text().replace(/,/g, "").replace("IDR",""));
-          // });
           var TotalValue = parseFloat(
             $("#totalValue").text().replace(/,/g, "").replace("IDR", "")
           );
@@ -213,10 +209,27 @@ $(document).on("click", ".Enter", function () {
                         format: "%s %v",
                       }),
                     icon: "success",
-                    buttons: "Okay",
-                  }).then((okay) => {
-                    if (okay) {
-                      window.location.href = "main.php";
+                    buttons: {
+                      ok: "Okay",
+                      print: {
+                        text: "Print Receipt",
+                        value: "print",
+                      },
+                    },
+                  }).then((value) => {
+                    switch (value) {
+                      case "print":
+                        printReceipt(
+                          product,
+                          quantity,
+                          price,
+                          TotalValue,
+                          change,
+                          customer
+                        );
+                        break;
+                      default:
+                        window.location.href = "main.php";
                     }
                   });
                 } else {
@@ -230,6 +243,29 @@ $(document).on("click", ".Enter", function () {
     });
   }
 });
+
+// feature print struck format csv
+function printReceipt(product, quantity, price, TotalValue, change, customer) {
+  var receiptContent = "Product,Quantity,Price\n";
+  for (var i = 0; i < product.length; i++) {
+    receiptContent += product[i] + "," + quantity[i] + "," + price[i] + "\n";
+  }
+  receiptContent += "\nTotal: " + TotalValue + "\n";
+  receiptContent += "Change: " + change + "\n";
+  receiptContent += "Customer: " + customer + "\n";
+
+  var blob = new Blob([receiptContent], { type: "text/csv;charset=utf-8;" });
+  var link = document.createElement("a");
+  if (link.download !== undefined) {
+    var url = URL.createObjectURL(blob);
+    link.setAttribute("href", url);
+    link.setAttribute("download", "receipt.csv");
+    link.style.visibility = "hidden";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
+}
 
 $(document).on("click", ".cancel", function (e) {
   var TotalPriceArr = $("#tableData tr .totalPrice").get();
