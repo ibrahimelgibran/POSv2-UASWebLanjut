@@ -76,6 +76,7 @@
 				</table>
 				</form>
 			</div>
+			<!-- feature buttom card -->
 			<div id="table_buttons">
 				<button id="buttons" type="button" name='enter' class="Enter btn btn-secondary border ml-2"><i class="fas fa-handshake"></i> Finish</button>
 				<div class="">
