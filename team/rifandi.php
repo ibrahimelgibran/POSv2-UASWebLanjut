@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    <h1> Rifandi </h1>
+    <h1> Rifandi</h1>
 </body>
 
 </html>
